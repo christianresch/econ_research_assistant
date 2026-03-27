@@ -20,7 +20,7 @@ class ColumnProfile(BaseModel):
     top_values: dict[str, int] | None = None
 
 
-class DatasetProfile(BaseModel):
+class ProfileReport(BaseModel):
     n_rows: int
     n_cols: int
     n_complete_rows: int
@@ -28,14 +28,14 @@ class DatasetProfile(BaseModel):
     columns: list[ColumnProfile]
 
 
-def profile_dataset(df: pd.DataFrame) -> DatasetProfile:
+def profile_dataset(df: pd.DataFrame) -> ProfileReport:
     """Profile a DataFrame: shape, missingness, descriptive statistics.
 
     Args:
         df: The DataFrame to profile.
 
     Returns:
-        A DatasetProfile with row/column counts and per-column statistics.
+        A ProfileReport with row/column counts and per-column statistics.
     """
     n_rows, n_cols = df.shape
     n_complete = int(df.dropna().shape[0])
@@ -81,7 +81,7 @@ def profile_dataset(df: pd.DataFrame) -> DatasetProfile:
                 top_values=top_str,
             ))
 
-    return DatasetProfile(
+    return ProfileReport(
         n_rows=n_rows,
         n_cols=n_cols,
         n_complete_rows=n_complete,
@@ -90,8 +90,8 @@ def profile_dataset(df: pd.DataFrame) -> DatasetProfile:
     )
 
 
-def format_profile(profile: DatasetProfile) -> str:
-    """Render a DatasetProfile as a human-readable string.
+def format_profile(profile: ProfileReport) -> str:
+    """Render a ProfileReport as a human-readable string.
 
     Args:
         profile: The profile to render.

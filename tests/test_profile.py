@@ -1,7 +1,7 @@
 import math
 import pandas as pd
 import pytest
-from src.tools.profile import profile_dataset, format_profile, DatasetProfile, ColumnProfile
+from src.tools.profile import profile_dataset, format_profile, ProfileReport, ColumnProfile
 
 
 # ---------------------------------------------------------------------------
@@ -43,7 +43,7 @@ def all_missing_df() -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
-# DatasetProfile shape
+# ProfileReport shape
 # ---------------------------------------------------------------------------
 
 def test_row_col_counts(numeric_df):
