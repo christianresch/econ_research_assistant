@@ -5,14 +5,13 @@
         handles CSV, Excel, Stata (.dta), SPSS (.sav)
         raises ValueError for unsupported formats
         tests + fixtures for all four formats
-
-## In progress
-- [ ] profile.py — profile_dataset(df) → ProfileReport
+- [x] profile.py — profile_dataset(df) → ProfileReport
         shape, column names, dtypes
         null counts per column
         summary statistics for numeric columns
         output as structured pydantic model, not print statements
 
+## In progress
 - [ ] export.py — save charts and tables to outputs/
         timestamped filenames
         consistent format across all outputs
