@@ -10,37 +10,13 @@
         null counts per column
         summary statistics for numeric columns
         output as structured pydantic model, not print statements
+- [x] export.py — export_profile_table, export_distributions
+        profile table as PNG via matplotlib table rendering
+        per-column distribution plots (histplot+KDE / barh)
+        skips columns with > 50% missing
+        timestamped filenames: {name}_profile_{ts}.png / {name}_{col}_{ts}.png
 
 ## In progress
-- [ ] export.py — Implement src/tools/export.py for data exploration output.
-
-It should expose two functions:
-
-1. export_profile_table(report: ProfileReport, name: str) -> Path
-   Saves a summary table as a PNG to outputs/.
-   Table rows = one per column. Columns:
-   - column name, dtype, % missing, n_unique
-   - for numeric: mean, std, min, median, max
-   - for categorical: top 3 values with counts
-   Use matplotlib's table rendering, not seaborn.
-   Filename: {name}_profile_{timestamp}.png
-
-2. export_distributions(df: pd.DataFrame, 
-                         report: ProfileReport, 
-                         name: str) -> list[Path]
-   Saves one plot per column to outputs/.
-   - numeric columns: histogram with a KDE line (seaborn)
-   - categorical columns: horizontal bar chart of top 10 values
-   - skip columns with > 50% missing
-   Filename: {name}_{column_name}_{timestamp}.png
-   Returns list of all paths written.
-
-Import ProfileReport from src/tools/profile.py.
-Timestamp format: %Y%m%d_%H%M%S
-outputs/ directory should be created if it doesn't exist.
-Write tests in tests/test_export.py using a small synthetic 
-ProfileReport and DataFrame — no real data needed.
-Run tests when done.
 
 ## Later — break down when we get here
 - [ ] merge.py (approval gate required)
