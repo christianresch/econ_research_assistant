@@ -1,5 +1,19 @@
 # Decisions
 
+## Core principles
+
+### Human control is structural, not behavioral
+The system must make safe behavior the path of least resistance,
+not the path of most discipline. This applies at every level:
+
+- The agent cannot merge or analyze without explicit confirmation
+- Claude Code cannot land code to main without a diff review
+- Process controls are encoded into workflow, not relied on as habits
+
+This principle governs all future design decisions in this project.
+
+---
+
 ## 2026-03-27
 
 ### Stack
