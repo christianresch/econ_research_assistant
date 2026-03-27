@@ -1,0 +1,10 @@
+anthropic
+pandas
+pyreadstat
+openpyxl
+matplotlib
+seaborn
+rpy2
+pydantic
+pytest
+python-dotenv
