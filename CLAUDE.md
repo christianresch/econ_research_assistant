@@ -58,6 +58,9 @@ src/prompts/analysis_plan_template.md.
 - Build tools in this order: ingest → profile → export → merge → analysis → r_bridge
 - Don't build r_bridge until merge and analysis work in Python
 
+## Session startup
+At the start of every session, read BACKLOG.md and DECISIONS.md before doing anything. The current task is whatever is marked "In progress" in BACKLOG.md.
+
 ## What NOT to do
 - No Jupyter notebooks
 - No LangChain, LlamaIndex, or agent frameworks
